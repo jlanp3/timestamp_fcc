@@ -28,7 +28,8 @@ app.get("/api/", (req, res, next) => {
 app.get(
   "/api/:date?",
   (req, res, next) => {
-    if (req.params.date.includes("-")) {
+    console.log(new Date(req.params.date));
+    if (req.params.date.includes("-") || req.params.date.includes(" ")) {
       date = new Date(req.params.date);
       if (date.toString() === "Invalid Date") {
         req.err = date.toString();
